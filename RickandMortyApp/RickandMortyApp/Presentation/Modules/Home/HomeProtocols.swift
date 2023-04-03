@@ -5,7 +5,7 @@ protocol HomeBuilderProtocol: BuilderProtocol {
 }
 
 protocol HomeRouterProtocol {
-    
+
 }
 
 protocol HomeViewModelProtocol: ViewModelProtocol {

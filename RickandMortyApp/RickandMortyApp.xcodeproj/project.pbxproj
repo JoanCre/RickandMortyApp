@@ -24,10 +24,10 @@
 		4E115A8629D6D8350058C324 /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8329D6D8350058C324 /* BuilderProtocol.swift */; };
 		4E115A8729D6D8350058C324 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8429D6D8350058C324 /* BaseViewController.swift */; };
 		4E115A8929D6D9000058C324 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8829D6D9000058C324 /* Container.swift */; };
-		4E115A8D29D6DA0E0058C324 /* dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8C29D6DA0E0058C324 /* dto.swift */; };
-		4E115A8F29D6DA180058C324 /* repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8E29D6DA180058C324 /* repository.swift */; };
-		4E115A9329D6DA4A0058C324 /* usecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A9229D6DA4A0058C324 /* usecase.swift */; };
-		4E115A9529D6DA550058C324 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A9429D6DA550058C324 /* Entity.swift */; };
+		4E115A8D29D6DA0E0058C324 /* CharacterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8C29D6DA0E0058C324 /* CharacterDTO.swift */; };
+		4E115A8F29D6DA180058C324 /* CharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8E29D6DA180058C324 /* CharacterRepository.swift */; };
+		4E115A9329D6DA4A0058C324 /* CharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A9229D6DA4A0058C324 /* CharacterUseCase.swift */; };
+		4E115A9529D6DA550058C324 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A9429D6DA550058C324 /* Character.swift */; };
 		4E115A9729D6DAD90058C324 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A9629D6DAD90058C324 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,10 +70,10 @@
 		4E115A8329D6D8350058C324 /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
 		4E115A8429D6D8350058C324 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4E115A8829D6D9000058C324 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		4E115A8C29D6DA0E0058C324 /* dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dto.swift; sourceTree = "<group>"; };
-		4E115A8E29D6DA180058C324 /* repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repository.swift; sourceTree = "<group>"; };
-		4E115A9229D6DA4A0058C324 /* usecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usecase.swift; sourceTree = "<group>"; };
-		4E115A9429D6DA550058C324 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		4E115A8C29D6DA0E0058C324 /* CharacterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDTO.swift; sourceTree = "<group>"; };
+		4E115A8E29D6DA180058C324 /* CharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
+		4E115A9229D6DA4A0058C324 /* CharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterUseCase.swift; sourceTree = "<group>"; };
+		4E115A9429D6DA550058C324 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		4E115A9629D6DAD90058C324 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,7 +249,7 @@
 		4E115A8A29D6D9F20058C324 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				4E115A8C29D6DA0E0058C324 /* dto.swift */,
+				4E115A8C29D6DA0E0058C324 /* CharacterDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -257,7 +257,7 @@
 		4E115A8B29D6D9F90058C324 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				4E115A8E29D6DA180058C324 /* repository.swift */,
+				4E115A8E29D6DA180058C324 /* CharacterRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 		4E115A9029D6DA200058C324 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				4E115A9229D6DA4A0058C324 /* usecase.swift */,
+				4E115A9229D6DA4A0058C324 /* CharacterUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 		4E115A9129D6DA290058C324 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				4E115A9429D6DA550058C324 /* Entity.swift */,
+				4E115A9429D6DA550058C324 /* Character.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -288,6 +288,7 @@
 				4E115A3329D6D0890058C324 /* Sources */,
 				4E115A3429D6D0890058C324 /* Frameworks */,
 				4E115A3529D6D0890058C324 /* Resources */,
+				4E115A9829D6DFFD0058C324 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -404,6 +405,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E115A9829D6DFFD0058C324 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, run setup.sh (or download from https://github.com/realm/SwiftLint)\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E115A3329D6D0890058C324 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -411,18 +434,18 @@
 			files = (
 				4E115A8629D6D8350058C324 /* BuilderProtocol.swift in Sources */,
 				4E115A8529D6D8350058C324 /* ViewModelProtocol.swift in Sources */,
-				4E115A8F29D6DA180058C324 /* repository.swift in Sources */,
+				4E115A8F29D6DA180058C324 /* CharacterRepository.swift in Sources */,
 				4E115A7A29D6D6710058C324 /* HomeBuilder.swift in Sources */,
 				4E115A7F29D6D6A20058C324 /* HomeRouter.swift in Sources */,
 				4E115A7C29D6D6830058C324 /* HomeProtocols.swift in Sources */,
 				4E115A8729D6D8350058C324 /* BaseViewController.swift in Sources */,
 				4E115A3B29D6D0890058C324 /* AppDelegate.swift in Sources */,
-				4E115A8D29D6DA0E0058C324 /* dto.swift in Sources */,
+				4E115A8D29D6DA0E0058C324 /* CharacterDTO.swift in Sources */,
 				4E115A9729D6DAD90058C324 /* UIImage.swift in Sources */,
 				4E115A3D29D6D0890058C324 /* SceneDelegate.swift in Sources */,
 				4E115A7629D6D63A0058C324 /* HomeViewController.swift in Sources */,
-				4E115A9529D6DA550058C324 /* Entity.swift in Sources */,
-				4E115A9329D6DA4A0058C324 /* usecase.swift in Sources */,
+				4E115A9529D6DA550058C324 /* Character.swift in Sources */,
+				4E115A9329D6DA4A0058C324 /* CharacterUseCase.swift in Sources */,
 				4E115A8929D6D9000058C324 /* Container.swift in Sources */,
 				4E115A8129D6D6B60058C324 /* HomeViewmodel.swift in Sources */,
 			);
