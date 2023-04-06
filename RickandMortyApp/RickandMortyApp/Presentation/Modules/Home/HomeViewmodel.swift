@@ -4,6 +4,22 @@ final class HomeViewModel: HomeViewModelProtocol {
     let router: HomeRouterProtocol
     var characterUseCase: CharacterUseCaseProtocol
 
+    enum Status {
+        case searching
+        case listing
+    }
+
+    var currentSearch: String = "" {
+        willSet {
+            if newValue == currentSearch { return }
+            characters = []
+            hasNextPage = true
+            page = 1
+            currentStatus = currentSearch.isEmpty ? .listing : .searching
+        }
+    }
+    var currentStatus: Status = .listing
+
     var characters = [Character]() {
         didSet {
             listCharactersUpdated?()
@@ -57,6 +73,24 @@ extension HomeViewModel {
     func loadMoreCharacter(currentItem: Int) {
         if (characters.count - 5 < currentItem) && hasNextPage {
             loadCharacters()
+        }
+    }
+
+    func search(this name: String) {
+        if name.isEmpty {
+            loadCharacters()
+            return
+        }
+        currentSearch = name
+        if !hasNextPage { return }
+        Task {
+            do {
+                let (characters, hasNextPage) = try await characterUseCase.search(this: name, for: page)
+                self.characters.append(contentsOf: characters)
+                self.hasNextPage = hasNextPage
+            } catch {
+                errorHasOcurred?(error)
+            }
         }
     }
 }

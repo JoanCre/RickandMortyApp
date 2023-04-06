@@ -61,18 +61,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+    // MARK: - SearchBar
 extension HomeViewController: UISearchBarDelegate {
     func configureSearchBar() {
-        searchBar.searchBarStyle = UISearchBar.Style.default
-        searchBar.placeholder = " Buscar..."
+        searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchBar.placeholder = " Search..."
         searchBar.sizeToFit()
-        searchBar.isTranslucent = false
         searchBar.backgroundImage = UIImage()
+        searchBar.returnKeyType = .search
         searchBar.delegate = self
         navigationItem.titleView = searchBar
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        viewModel.search(this: searchText)
     }
 }

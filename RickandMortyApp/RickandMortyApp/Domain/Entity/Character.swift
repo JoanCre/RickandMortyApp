@@ -20,7 +20,7 @@ class Character {
         self.image = dto.image
         self.status = dto.status.capitalized
         self.species = dto.species.capitalized
-        self.origin = dto.origin.name
+        self.origin = dto.origin.name.capitalized
     }
 }
 

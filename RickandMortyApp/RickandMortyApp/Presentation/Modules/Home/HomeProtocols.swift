@@ -14,6 +14,7 @@ protocol HomeViewModelProtocol: ViewModelProtocol {
     func viewDidDisappear()
 
     func loadMoreCharacter(currentItem: Int)
+    func search(this name: String)
     var characters: [Character] { get set }
     var hasNextPage: Bool { get set }
     var listCharactersUpdated: (() -> Void)? { get set }
