@@ -16,10 +16,13 @@ struct CharacterDTO: Codable {
     var name: String
     var status: String
     var species: String
-    var origin: CharacterOriginDTO
+    var type: String
+    var gender: String
+    var location: CharacterPlaceDTO
+    var origin: CharacterPlaceDTO
 }
 
-struct CharacterOriginDTO: Codable {
+struct CharacterPlaceDTO: Codable {
     var name: String
     var url: String
 }

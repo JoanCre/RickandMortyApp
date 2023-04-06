@@ -1,3 +1,5 @@
+import Foundation
+
 final class HomeViewModel: HomeViewModelProtocol {
 
     // MARK: - Properties
@@ -92,5 +94,9 @@ extension HomeViewModel {
                 errorHasOcurred?(error)
             }
         }
+    }
+
+    func goToDetail(character: Character) {
+        router.goToDetail(character: character)
     }
 }

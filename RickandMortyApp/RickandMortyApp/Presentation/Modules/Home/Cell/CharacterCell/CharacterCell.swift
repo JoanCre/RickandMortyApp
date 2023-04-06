@@ -32,7 +32,7 @@ class CharacterCell: UITableViewCell {
         lifeStatusView.backgroundColor = character.isAlive
         statusAndSpecieLabel.text = "\(character.status) - \(character.species)"
         originLabel.text = character.origin
-        guard let imageURL = URL(string: character.image) else { return }
-        characterImage.setImage(withURL: imageURL, placeholder: nil)
+        guard let urlImage = URL(string: character.image) else { return }
+        characterImage.setImage(withURL: urlImage, placeholder: nil)
     }
 }

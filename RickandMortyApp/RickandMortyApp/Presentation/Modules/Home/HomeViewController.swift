@@ -42,7 +42,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.register(UINib(nibName: CharacterCell.identifier, bundle: nil),
                            forCellReuseIdentifier: CharacterCell.identifier)
-        tableView.layer.cornerRadius = 2.0
         tableView.layer.masksToBounds = true
     }
 
@@ -58,6 +57,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.goToDetail(character: viewModel.characters[indexPath.row])
     }
 }
 

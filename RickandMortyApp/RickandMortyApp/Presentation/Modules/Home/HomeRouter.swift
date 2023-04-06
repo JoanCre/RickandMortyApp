@@ -9,4 +9,7 @@ final class HomeRouter {
 }
 
 extension HomeRouter: HomeRouterProtocol {
+    func goToDetail(character: Character) {
+        self.viewController?.present(CharacterDetailBuilder().build(character: character), animated: true)
+    }
 }
