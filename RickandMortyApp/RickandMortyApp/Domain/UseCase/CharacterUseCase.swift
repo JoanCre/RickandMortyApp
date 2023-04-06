@@ -1,6 +1,6 @@
 import Foundation
 
-enum CharacterUseCaseError: Error{
+enum CharacterUseCaseError: Error {
     case badURL
     case badResponse
     case decodeError

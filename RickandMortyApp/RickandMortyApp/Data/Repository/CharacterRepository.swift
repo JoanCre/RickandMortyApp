@@ -1,6 +1,6 @@
 import Foundation
 
-enum CharacterRepositoryError: Error{
+enum CharacterRepositoryError: Error {
     case badURL
     case badResponse
     case decodeError

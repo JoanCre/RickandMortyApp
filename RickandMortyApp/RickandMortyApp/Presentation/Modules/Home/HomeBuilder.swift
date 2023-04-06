@@ -4,7 +4,9 @@ final class HomeBuilder: HomeBuilderProtocol {
     func build() -> HomeViewController {
         let viewController = HomeViewController()
         let router = HomeRouter(viewController: viewController)
-        let viewModel = HomeViewModel(router: router)
+        let characterRepository = CharacterRepository()
+        let characterUseCase = CharacterUseCase(repository: characterRepository)
+        let viewModel = HomeViewModel(router: router, characterUseCase: characterUseCase)
         viewController.viewModel = viewModel
         return viewController
     }
