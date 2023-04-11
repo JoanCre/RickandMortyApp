@@ -39,7 +39,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     var listCharactersUpdated: (() -> Void)?
     var errorHasOcurred: ((Error) -> Void)?
 
-    init(router: HomeRouterProtocol, characterUseCase: CharacterUseCase) {
+    init(router: HomeRouterProtocol, characterUseCase: CharacterUseCaseProtocol) {
         self.router = router
         self.characterUseCase = characterUseCase
     }
