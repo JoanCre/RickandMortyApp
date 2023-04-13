@@ -3,7 +3,7 @@ import Foundation
 
 final class HomeUseCaseFake: CharacterUseCaseProtocol {
 
-    var error: NetworkError?
+    var error: CharacterRepositoryError?
     var isEmpty: Bool = false
 
     func getList(for page: Int) async throws -> ([RickandMortyApp.Character], Bool) {

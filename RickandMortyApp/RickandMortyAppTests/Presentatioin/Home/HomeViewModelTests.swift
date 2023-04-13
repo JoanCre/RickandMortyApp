@@ -39,7 +39,7 @@ final class HomeViewModelTest: XCTestCase {
 
     func test_whenLoadCharacters_thenFailureResponse() {
         // Given
-        useCase.error = .errorDecodable
+        useCase.error = .decodeError
         // When
         sut.loadCharacters()
         sut.listCharactersUpdated = {
@@ -68,7 +68,7 @@ final class HomeViewModelTest: XCTestCase {
 
     func test_whenLoadMoreCharacters_thenFailureResponse() {
         // Given
-        useCase.error = .errorDecodable
+        useCase.error = .decodeError
         // When
         sut.loadMoreCharacter(currentItem: 0)
         sut.listCharactersUpdated = {
@@ -97,7 +97,7 @@ final class HomeViewModelTest: XCTestCase {
 
     func test_whenSearchCharacters_thenFailureResponse() {
         // Given
-        useCase.error = .errorDecodable
+        useCase.error = .decodeError
         // When
         sut.search(this: "Dummy")
         sut.listCharactersUpdated = {
