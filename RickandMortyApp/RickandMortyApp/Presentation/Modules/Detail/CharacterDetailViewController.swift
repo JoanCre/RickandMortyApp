@@ -10,6 +10,7 @@ final class CharacterDetailViewController: BaseViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var originLabel: UILabel!
+    @IBOutlet weak var detailView: UIView!
 
     // MARK: - Properties
     var viewModel: CharacterDetailViewModelProtocol!
@@ -28,6 +29,12 @@ final class CharacterDetailViewController: BaseViewController {
         genderLabel.text = viewModel.character.gender
         locationLabel.text = viewModel.character.location
         originLabel.text = viewModel.character.origin
+
+        detailView.layer.shadowOffset = CGSize(width: 0, height: -5)
+        detailView.layer.shadowOpacity = 0.33
+        detailView.layer.shadowColor = UIColor.black.cgColor
+        detailView.layer.masksToBounds = false
+
         guard let urlImage = URL(string: viewModel.character.image) else { return }
         chatacterImage.setImage(withURL: urlImage, placeholder: nil)
     }
