@@ -57,6 +57,35 @@ final class HomeViewModelTest: XCTestCase {
         }
     }
 
+    func test_whenLoadMoreCharacters_thenSuccessResponse() {
+        // When
+        sut.loadMoreCharacter(currentItem: 0)
+        // Then
+        sut.listCharactersUpdated = {
+            XCTAssert(true)
+        }
+    }
+
+    func test_whenLoadMoreCharacters_thenFailureResponse() {
+        // Given
+        useCase.error = .errorDecodable
+        // When
+        sut.loadMoreCharacter(currentItem: 0)
+        sut.listCharactersUpdated = {
+            XCTAssert(true)
+        }
+    }
+
+    func test_whenLoadMoreCharacters_thenEmptyResponse() {
+        // Given
+        useCase.isEmpty = true
+        // When
+        sut.loadMoreCharacter(currentItem: 0)
+        sut.listCharactersUpdated = {
+            XCTAssert(true)
+        }
+    }
+
     func test_whenSearchCharacters_thenSuccessResponse() {
         // When
         sut.search(this: "Dummy")

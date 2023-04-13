@@ -8,7 +8,7 @@ public enum NetworkError: Error {
     case errorDecodableWith(Error)
     case errorData(Data)
     case failure(statusCode: Int, data: Data? = nil, response: URLResponse? = nil)
-    
+
     var localizedDescription: String {
         switch self {
         case .missingToken: return "Access Token not found"
