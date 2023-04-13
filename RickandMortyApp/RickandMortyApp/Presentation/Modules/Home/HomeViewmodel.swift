@@ -14,9 +14,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     var currentSearch: String = "" {
         willSet {
             if newValue == currentSearch { return }
-            characters = []
             hasNextPage = true
-            page = 1
             currentStatus = currentSearch.isEmpty ? .listing : .searching
         }
     }
@@ -79,7 +77,10 @@ extension HomeViewModel {
     }
 
     func search(this name: String) {
+        page = 1
+        characters.removeAll()
         if name.isEmpty {
+            currentStatus = .listing
             loadCharacters()
             return
         }

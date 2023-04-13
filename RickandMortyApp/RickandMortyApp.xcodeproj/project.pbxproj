@@ -366,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				4E2D394D29DF0FC000BEDB90 /* Home */,
-				4E2D394E29DF0FC700BEDB90 /* Detail */,
 			);
 			path = Presentatioin;
 			sourceTree = "<group>";
@@ -378,13 +377,6 @@
 				4E0A197229E5411500BB84E3 /* HomeViewModelTests.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		4E2D394E29DF0FC700BEDB90 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		4EE8A69229DBFC3100B2B152 /* Cell */ = {
