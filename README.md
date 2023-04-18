@@ -4,12 +4,12 @@ App that shows all the characters of the Rick and Morty series through its API h
 
 ## Functionalities
 
-    - Clean architecture
-    - List paginated characters
-    - Search characters by name
-    - Detail view of each character
-    - Image Cache
-    - Unit Test
+    · Clean architecture
+    · List paginated characters
+    · Search characters by name
+    · Detail view of each character
+    · Image Cache
+    · Unit Test
 
 
 ## Libraries
