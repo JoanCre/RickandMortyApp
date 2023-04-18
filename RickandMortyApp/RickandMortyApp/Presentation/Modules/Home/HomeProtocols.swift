@@ -1,7 +1,7 @@
 import Foundation
 
 protocol HomeBuilderProtocol: BuilderProtocol {
-    func build() -> HomeViewController
+    static func build() -> HomeViewController
 }
 
 protocol HomeRouterProtocol {

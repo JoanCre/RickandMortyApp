@@ -1,5 +1,4 @@
 import UIKit
-import AlamofireImage
 
 class CacheManager {
     static let shared = CacheManager()
@@ -24,13 +23,15 @@ extension UIImageView {
         if let cachedImage = CacheManager.shared.getImage(forKey: imageCacheKey) {
             self.image = cachedImage
         } else {
-            // If the image is not in the cache, load it from the network
-            self.af.setImage(withURL: url, placeholderImage: placeholder, progress: { progressPercentage in
-                progress?(progressPercentage.fractionCompleted)
-            }, progressQueue: .global(qos: .userInteractive)) { response in
-                if let image = response.value {
-                    // Save the image to the cache
-                    CacheManager.shared.saveImage(image, forKey: imageCacheKey)
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            // Save image in cache
+                            CacheManager.shared.saveImage(image, forKey: imageCacheKey)
+                            self?.image = image
+                        }
+                    }
                 }
             }
         }

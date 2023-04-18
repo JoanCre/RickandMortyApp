@@ -21,20 +21,7 @@ final class CharacterRepository: CharacterRepositoryProtocol {
         let request = URLRequest(url: url)
         print(request)
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            guard let response = response as? HTTPURLResponse else {
-                throw CharacterRepositoryError.invalidResponse
-            }
-            let decoder = JSONDecoder()
-            do {
-                if (200..<300).contains(response.statusCode) {
-                    return try decoder.decode(CharacterListDTO.self, from: data)
-                } else {
-                    throw CharacterRepositoryError.badResponse
-                }
-            } catch {
-                throw CharacterRepositoryError.decodeError
-            }
+            return try await fetchCharacters(request: request)
         } catch {
             throw CharacterRepositoryError.badRequest
         }
@@ -47,22 +34,26 @@ final class CharacterRepository: CharacterRepositoryProtocol {
         let request = URLRequest(url: url)
         print(request)
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            guard let response = response as? HTTPURLResponse else {
-                throw CharacterRepositoryError.invalidResponse
-            }
-            let decoder = JSONDecoder()
-            do {
-                if (200..<300).contains(response.statusCode) {
-                    return try decoder.decode(CharacterListDTO.self, from: data)
-                } else {
-                    throw CharacterRepositoryError.badResponse
-                }
-            } catch {
-                throw CharacterRepositoryError.decodeError
-            }
+            return try await fetchCharacters(request: request)
         } catch {
             throw CharacterRepositoryError.badRequest
+        }
+    }
+
+    func fetchCharacters(request: URLRequest) async throws -> CharacterListDTO {
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse else {
+            throw CharacterRepositoryError.invalidResponse
+        }
+        let decoder = JSONDecoder()
+        do {
+            if (200..<300).contains(response.statusCode) {
+                return try decoder.decode(CharacterListDTO.self, from: data)
+            } else {
+                throw CharacterRepositoryError.badResponse
+            }
+        } catch {
+            throw CharacterRepositoryError.decodeError
         }
     }
 }

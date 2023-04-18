@@ -1,7 +1,7 @@
 import Foundation
 
 protocol CharacterDetailBuilderProtocol: BuilderProtocol {
-    func build(character: Character) -> CharacterDetailViewController
+    static func build(character: Character) -> CharacterDetailViewController
 }
 
 protocol CharacterDetailRouterProtocol {
