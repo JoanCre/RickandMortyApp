@@ -27,7 +27,7 @@ class CharacterCell: UITableViewCell {
     }
 
     // MARK: - Functions
-    func setupUI() {
+    private func setupUI() {
         characterNameLabel.text = character.name
         lifeStatusView.backgroundColor = character.isAlive
         statusAndSpecieLabel.text = "\(character.status) - \(character.species)"

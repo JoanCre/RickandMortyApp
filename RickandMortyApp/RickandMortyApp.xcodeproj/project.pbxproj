@@ -21,7 +21,7 @@
 		4E115A7A29D6D6710058C324 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A7929D6D6710058C324 /* HomeBuilder.swift */; };
 		4E115A7C29D6D6830058C324 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A7B29D6D6830058C324 /* HomeProtocols.swift */; };
 		4E115A7F29D6D6A20058C324 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A7E29D6D6A20058C324 /* HomeRouter.swift */; };
-		4E115A8129D6D6B60058C324 /* HomeViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8029D6D6B60058C324 /* HomeViewmodel.swift */; };
+		4E115A8129D6D6B60058C324 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8029D6D6B60058C324 /* HomeViewModel.swift */; };
 		4E115A8529D6D8350058C324 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8229D6D8350058C324 /* ViewModelProtocol.swift */; };
 		4E115A8629D6D8350058C324 /* BuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8329D6D8350058C324 /* BuilderProtocol.swift */; };
 		4E115A8729D6D8350058C324 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E115A8429D6D8350058C324 /* BaseViewController.swift */; };
@@ -84,7 +84,7 @@
 		4E115A7929D6D6710058C324 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		4E115A7B29D6D6830058C324 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
 		4E115A7E29D6D6A20058C324 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
-		4E115A8029D6D6B60058C324 /* HomeViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewmodel.swift; sourceTree = "<group>"; };
+		4E115A8029D6D6B60058C324 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4E115A8229D6D8350058C324 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		4E115A8329D6D8350058C324 /* BuilderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderProtocol.swift; sourceTree = "<group>"; };
 		4E115A8429D6D8350058C324 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 				4E115A7E29D6D6A20058C324 /* HomeRouter.swift */,
 				4E115A7529D6D63A0058C324 /* HomeViewController.swift */,
 				4E115A7729D6D65C0058C324 /* HomeViewController.xib */,
-				4E115A8029D6D6B60058C324 /* HomeViewmodel.swift */,
+				4E115A8029D6D6B60058C324 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -644,7 +644,7 @@
 				4E115A8929D6D9000058C324 /* Container.swift in Sources */,
 				4E2D394429DEC96800BEDB90 /* CharacterDetailBuilder.swift in Sources */,
 				4E586ABD2A03F10A0003BB08 /* CharacterLocalDatasource.swift in Sources */,
-				4E115A8129D6D6B60058C324 /* HomeViewmodel.swift in Sources */,
+				4E115A8129D6D6B60058C324 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@ final class HomeViewController: BaseViewController {
         viewModel?.viewDidLoad()
     }
 
-    func setupBindings() {
+    private func setupBindings() {
         viewModel.listCharactersUpdated = {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -29,7 +29,7 @@ final class HomeViewController: BaseViewController {
     }
 
     // MARK: - Functions
-    func setupUI() {
+    private func setupUI() {
         configure(this: tableView)
         configureSearchBar()
     }
@@ -37,7 +37,7 @@ final class HomeViewController: BaseViewController {
 
 // MARK: - TableView
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func configure(this tableView: UITableView) {
+    private func configure(this tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: CharacterCell.identifier, bundle: nil),
@@ -66,7 +66,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - SearchBar
 extension HomeViewController: UISearchBarDelegate {
-    func configureSearchBar() {
+    private func configureSearchBar() {
         searchBar.searchBarStyle = UISearchBar.Style.prominent
         searchBar.placeholder = " Search..."
         searchBar.sizeToFit()

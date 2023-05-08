@@ -7,6 +7,3 @@ final class CharacterDetailRouter {
         self.viewController = viewController
     }
 }
-
-extension CharacterDetailRouter: CharacterDetailRouterProtocol {
-}

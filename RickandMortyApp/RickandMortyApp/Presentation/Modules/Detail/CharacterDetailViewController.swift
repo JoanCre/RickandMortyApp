@@ -22,7 +22,7 @@ final class CharacterDetailViewController: BaseViewController {
     }
 
     // MARK: - Functions
-    func setupUI() {
+   private func setupUI() {
         characterNameLabel.text = viewModel.character.name
         statusView.backgroundColor = viewModel.character.isAlive
         specieLabel.text = viewModel.character.type == "" ? viewModel.character.species : "\(viewModel.character.type),\(viewModel.character.species)"
