@@ -33,6 +33,6 @@ class CharacterCell: UITableViewCell {
         statusAndSpecieLabel.text = "\(character.status) - \(character.species)"
         originLabel.text = character.origin
         guard let urlImage = URL(string: character.image) else { return }
-        characterImage.setImage(withURL: urlImage, placeholder: nil)
+        characterImage.load(url: urlImage)
     }
 }

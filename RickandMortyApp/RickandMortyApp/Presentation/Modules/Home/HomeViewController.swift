@@ -30,14 +30,14 @@ final class HomeViewController: BaseViewController {
 
     // MARK: - Functions
     func setupUI() {
-        configure(tableView)
+        configure(this: tableView)
         configureSearchBar()
     }
 }
 
-    // MARK: - TableView
+// MARK: - TableView
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func configure(_ tableView: UITableView) {
+    func configure(this tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: CharacterCell.identifier, bundle: nil),
@@ -64,7 +64,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-    // MARK: - SearchBar
+// MARK: - SearchBar
 extension HomeViewController: UISearchBarDelegate {
     func configureSearchBar() {
         searchBar.searchBarStyle = UISearchBar.Style.prominent

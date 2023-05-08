@@ -61,7 +61,7 @@ extension HomeViewModel {
         if !hasNextPage { return }
         Task {
             do {
-                let (characters, hasNextPage) = try await characterUseCase.getList(for: page)
+                let (characters, hasNextPage) = try await characterUseCase.getCharactersAndNextPageWhenSearching(for: page)
                 self.characters.append(contentsOf: characters)
                 self.hasNextPage = hasNextPage
             } catch {
@@ -88,7 +88,7 @@ extension HomeViewModel {
         if !hasNextPage { return }
         Task {
             do {
-                let (characters, hasNextPage) = try await characterUseCase.search(this: name, for: page)
+                let (characters, hasNextPage) = try await characterUseCase.getCharactersAndNextPageWhenSearching(this: name, for: page)
                 self.characters.append(contentsOf: characters)
                 self.hasNextPage = hasNextPage
             } catch {

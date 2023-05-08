@@ -1,59 +1,30 @@
 import Foundation
 
-enum CharacterRepositoryError: Error {
-    case badURL
-    case badResponse
-    case decodeError
-    case badRequest
-    case invalidResponse
-}
-
 protocol CharacterRepositoryProtocol {
-    func getList(for page: Int) async throws -> CharacterListDTO
-    func search(this name: String, for page: Int) async throws -> CharacterListDTO
+    func getCharactersAndNextPage(for page: Int) async throws -> CharacterPaginationDTO
+    func getCharactersAndNextPageWhenSearch(this name: String, for page: Int) async throws -> CharacterPaginationDTO
 }
 
 final class CharacterRepository: CharacterRepositoryProtocol {
-    func getList(for page: Int) async throws -> CharacterListDTO {
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\(page)") else {
-            throw CharacterRepositoryError.badURL
+    let cacheManager = CacheManager()
+    let localDatasource = CharacterLocalDatasource()
+    let networkDatasource = CharactersNetworkDatasource()
+
+    func getCharactersAndNextPage(for page: Int) async throws -> CharacterPaginationDTO {
+        guard let localCharactersAndNextPage = try await localDatasource.getCharactersAndNextPage(for: page) else {
+            let networkCharactersAndNextPage = try await networkDatasource.getCharactersAndNextPage(for: page)
+            cacheManager.set(networkCharactersAndNextPage, forKey: "\(page)")
+            return networkCharactersAndNextPage!
         }
-        let request = URLRequest(url: url)
-        print(request)
-        do {
-            return try await fetchCharacters(request: request)
-        } catch {
-            throw CharacterRepositoryError.badRequest
-        }
+        return localCharactersAndNextPage
     }
 
-    func search(this name: String, for page: Int) async throws -> CharacterListDTO {
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character/?name=\(name)&page=\(page)") else {
-            throw CharacterRepositoryError.badURL
+    func getCharactersAndNextPageWhenSearch(this name: String, for page: Int) async throws -> CharacterPaginationDTO {
+        guard let localCharactersAndNextPage = try await localDatasource.getCharactersAndNextPageWhenSearching(this: name, for: page) else {
+            let networkCharactersAndNextPage = try await networkDatasource.getCharactersAndNextPageWhenSearching(this: name, for: page)
+            cacheManager.set(networkCharactersAndNextPage, forKey: "\(name) + \(page)")
+            return networkCharactersAndNextPage!
         }
-        let request = URLRequest(url: url)
-        print(request)
-        do {
-            return try await fetchCharacters(request: request)
-        } catch {
-            throw CharacterRepositoryError.badRequest
-        }
-    }
-
-    func fetchCharacters(request: URLRequest) async throws -> CharacterListDTO {
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let response = response as? HTTPURLResponse else {
-            throw CharacterRepositoryError.invalidResponse
-        }
-        let decoder = JSONDecoder()
-        do {
-            if (200..<300).contains(response.statusCode) {
-                return try decoder.decode(CharacterListDTO.self, from: data)
-            } else {
-                throw CharacterRepositoryError.badResponse
-            }
-        } catch {
-            throw CharacterRepositoryError.decodeError
-        }
+        return localCharactersAndNextPage
     }
 }

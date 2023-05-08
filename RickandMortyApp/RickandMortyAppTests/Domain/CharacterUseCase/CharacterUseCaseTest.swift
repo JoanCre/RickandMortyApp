@@ -18,7 +18,7 @@ final class CharacterUseCaseTests: XCTestCase {
     func test_whenGetList_thenSuccessResponse() async {
         do {
             // When
-            let result = try await sut.getList(for: 0)
+            let result = try await sut.getCharactersAndNextPageWhenSearching(for: 0)
             // Then
             XCTAssertFalse(result.0.isEmpty)
         } catch {
@@ -29,7 +29,7 @@ final class CharacterUseCaseTests: XCTestCase {
     func test_whenSearch_thenSuccessResponse() async {
         do {
             // When
-            let result = try await sut.search(this: "Dummy", for: 0)
+            let result = try await sut.getCharactersAndNextPageWhenSearching(this: "Dummy", for: 0)
             // Then
             XCTAssertFalse(result.0.isEmpty)
         } catch {

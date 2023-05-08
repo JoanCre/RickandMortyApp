@@ -1,6 +1,6 @@
 import Foundation
 
-struct CharacterListDTO: Codable {
+struct CharacterPaginationDTO: Codable {
     var info: InfoDTO
     var results: [CharacterDTO]
 }

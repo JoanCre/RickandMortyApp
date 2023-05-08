@@ -2,7 +2,7 @@ import XCTest
 @testable import RickandMortyApp
 
 final class CharacterDTOMock {
-    static func getListMock() -> CharacterListDTO {
+    static func getListMock() -> CharacterPaginationDTO {
         let info = InfoDTO(count: 1,
                            pages: 20)
 
@@ -15,7 +15,7 @@ final class CharacterDTOMock {
                                       location: CharacterPlaceDTO(name: "location", url: ""),
                                       origin: CharacterPlaceDTO(name: "origin", url: ""))]
 
-        return CharacterListDTO(info: info,
+        return CharacterPaginationDTO(info: info,
                                 results: character)
     }
 }
