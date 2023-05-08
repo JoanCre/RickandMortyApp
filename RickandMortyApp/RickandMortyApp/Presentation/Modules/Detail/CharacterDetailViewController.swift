@@ -36,6 +36,6 @@ final class CharacterDetailViewController: BaseViewController {
         detailView.layer.masksToBounds = false
 
         guard let urlImage = URL(string: viewModel.character.image) else { return }
-        chatacterImage.setImage(withURL: urlImage, placeholder: nil)
+        chatacterImage.load(url: urlImage)
     }
 }

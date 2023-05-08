@@ -1,13 +1,5 @@
 import Foundation
 
-enum CharacterUseCaseError: Error {
-    case badURL
-    case badResponse
-    case decodeError
-    case badRequest
-    case invalidResponse
-}
-
 final class CharacterUseCase {
     let repository: CharacterRepositoryProtocol
 
@@ -17,39 +9,21 @@ final class CharacterUseCase {
 }
 
 protocol CharacterUseCaseProtocol {
-    func getList(for page: Int) async throws -> ([Character], Bool)
-    func search(this name: String, for page: Int) async throws -> ([Character], Bool)
+    func getCharactersAndNextPageWhenSearching(for page: Int) async throws -> ([Character], Bool)
+    func getCharactersAndNextPageWhenSearching(this name: String, for page: Int) async throws -> ([Character], Bool)
 }
 
 extension CharacterUseCase: CharacterUseCaseProtocol {
-    func getList(for page: Int) async throws -> ([Character], Bool) {
-        do {
-            var hasNextPage = false
-            let list = try await repository.getList(for: page)
-            guard let nextPage = list.info.next else {
-                hasNextPage = false
-                return (convertToEntity(these: list.results), hasNextPage)
-            }
-            hasNextPage = !nextPage.isEmpty ? true : false
-            return (convertToEntity(these: list.results), hasNextPage)
-        } catch {
-            throw error
-        }
+    func getCharactersAndNextPageWhenSearching(for page: Int) async throws -> ([Character], Bool) {
+        let charactersAndNextPage = try await repository.getCharactersAndNextPage(for: page)
+        let hasNextPage = charactersAndNextPage.info.next != nil
+        return (convertToEntity(these: charactersAndNextPage.results), hasNextPage)
     }
 
-    func search(this name: String, for page: Int) async throws -> ([Character], Bool) {
-        do {
-            var hasNextPage = false
-            let list = try await repository.search(this: name, for: page)
-            guard let nextPage = list.info.next else {
-                hasNextPage = false
-                return (convertToEntity(these: list.results), hasNextPage)
-            }
-            hasNextPage = !nextPage.isEmpty ? true : false
-            return (convertToEntity(these: list.results), hasNextPage)
-        } catch {
-            throw error
-        }
+    func getCharactersAndNextPageWhenSearching(this name: String, for page: Int) async throws -> ([Character], Bool) {
+        let charactersAndNextPageWhenSearching = try await repository.getCharactersAndNextPageWhenSearch(this: name, for: page)
+        let hasNextPage = charactersAndNextPageWhenSearching.info.next != nil
+        return (convertToEntity(these: charactersAndNextPageWhenSearching.results), hasNextPage)
     }
 
     func convertToEntity(these dtos: [CharacterDTO]) -> [Character] {

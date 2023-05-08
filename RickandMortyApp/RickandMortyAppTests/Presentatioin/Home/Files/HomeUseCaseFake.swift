@@ -3,10 +3,10 @@ import Foundation
 
 final class HomeUseCaseFake: CharacterUseCaseProtocol {
 
-    var error: CharacterRepositoryError?
+    var error: NetworkError?
     var isEmpty: Bool = false
 
-    func getList(for page: Int) async throws -> ([RickandMortyApp.Character], Bool) {
+    func getCharactersAndNextPageWhenSearching(for page: Int) async throws -> ([RickandMortyApp.Character], Bool) {
         if let error = self.error {
             throw error
         }
@@ -14,7 +14,7 @@ final class HomeUseCaseFake: CharacterUseCaseProtocol {
         return isEmpty ? ([], false) : (CharacterMock.characrers, true)
     }
 
-    func search(this name: String, for page: Int) async throws -> ([RickandMortyApp.Character], Bool) {
+    func getCharactersAndNextPageWhenSearching(this name: String, for page: Int) async throws -> ([RickandMortyApp.Character], Bool) {
         if let error = self.error {
             throw error
         }
